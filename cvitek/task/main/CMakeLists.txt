@@ -31,7 +31,7 @@ file(GLOB_RECURSE CVI_LIBS ${CMAKE_INSTALL_PREFIX}/*.a)
 
 set(LINKER_SCRIPT "${TOP_DIR}/scripts/${CHIP}_lscript.ld")
 set(EXTRA_LIBS ${EXTRA_LIBS} "-L${BUILD_ENV_PATH}/output/$ENV{PROJECT_FULLNAME}")
-set(EXTRA_LIBS ${EXTRA_LIBS} m c gcc sim)
+set(EXTRA_LIBS ${EXTRA_LIBS} m c gcc)
 set(CMAKE_EXE_LINKER_FLAGS -T${LINKER_SCRIPT} )
 
 link_directories("${TOP_DIR}/install/lib")

@@ -6,7 +6,11 @@
 
 //#include <stdio.h>
 #include <stdarg.h>
-#include <time.h>
+#include <sys/time.h>
+
+#ifndef NULL
+#define NULL ((char *)0)
+#endif
 
 /* Choose max of 128 chars for now. */
 #define PRINT_BUFFER_SIZE 128

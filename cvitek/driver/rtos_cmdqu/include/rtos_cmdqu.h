@@ -2,6 +2,10 @@
 #define __RTOS_COMMAND_QUEUE__
 
 #ifdef __linux__
+#ifndef __kernel_long_t
+typedef long        __kernel_long_t;
+typedef unsigned long    __kernel_ulong_t;
+#endif
 #include <linux/kernel.h>
 #endif
 

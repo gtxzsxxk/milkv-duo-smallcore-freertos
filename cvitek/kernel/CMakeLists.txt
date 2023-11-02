@@ -11,7 +11,7 @@ set(TRACE_SOURCE ${TOP_DIR}/../Tracealyzer)
 set(CMAKE_INSTALL_PREFIX ${TOP_DIR}/install)
 set(CMAKE_INSTALL_INC_PREFIX ${TOP_DIR}/install/include)
 
-set(SAFETY_FLAGS "-Wall -Wextra -fno-strict-aliasing -static --specs=nosys.specs -D__BUILD_RTOS_KERNEL__")
+set(SAFETY_FLAGS "-Wall -Wextra -fno-strict-aliasing -static -D__BUILD_RTOS_KERNEL__")
 #set(SAFETY_FLAGS "-Werror -Wall -Wextra -fno-strict-aliasing")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SAFETY_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SAFETY_FLAGS}")

@@ -9,7 +9,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_INSTALL_PREFIX ${TOP_DIR}/install)
 set(CMAKE_INSTALL_INC_PREFIX ${TOP_DIR}/install/include)
 
-set(SAFETY_FLAGS "-Wall -Wextra -fno-strict-aliasing -static --specs=nosys.specs")
+set(SAFETY_FLAGS "-Wall -Wextra -fno-strict-aliasing -static")
 #set(SAFETY_FLAGS "-Werror -Wall -Wextra -fno-strict-aliasing")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SAFETY_FLAGS} -D${RUN_TYPE}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SAFETY_FLAGS}")
