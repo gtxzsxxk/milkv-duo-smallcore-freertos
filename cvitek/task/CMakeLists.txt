@@ -15,7 +15,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SAFETY_FLAGS} -D${RUN_TYPE}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SAFETY_FLAGS}")
 
 include(${TOP_DIR}/scripts/ParseConfiguration.cmake)
-ParseConfiguration("${BUILD_ENV_PATH}/.config")
+ParseConfiguration("${TOP_DIR}/milkv_duo_sd_defconfig")
 
 if (CHIP STREQUAL "cv1835")
     add_subdirectory(comm)

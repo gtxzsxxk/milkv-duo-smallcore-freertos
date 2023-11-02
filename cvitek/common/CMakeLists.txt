@@ -15,7 +15,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SAFETY_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SAFETY_FLAGS}")
 
 include(${TOP_DIR}/scripts/ParseConfiguration.cmake)
-ParseConfiguration("${BUILD_ENV_PATH}/.config")
+ParseConfiguration("${TOP_DIR}/milkv_duo_sd_defconfig")
 
 if (ARCH STREQUAL "")
     message(*** Please set ARCH in scripts/*cmake. ***)

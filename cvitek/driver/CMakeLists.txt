@@ -21,7 +21,7 @@ set(DRIVER_GPIO_DIR ${CMAKE_DRIVER_DIR}/gpio)
 set(DRIVER_I2C_DIR ${CMAKE_DRIVER_DIR}/i2c)
 
 include(${TOP_DIR}/scripts/ParseConfiguration.cmake)
-ParseConfiguration("${BUILD_ENV_PATH}/.config")
+ParseConfiguration("${TOP_DIR}/milkv_duo_sd_defconfig")
 
 if(CONFIG_BOARD STREQUAL "cv181x_fpga" OR CONFIG_BOARD STREQUAL "cv181x_fpga_c906")
 	add_compile_definitions(FPGA_PORTING)
