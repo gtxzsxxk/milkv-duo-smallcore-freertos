@@ -26,6 +26,12 @@
  */
 
 #include "riscv-virt.h"
+
+#define mxstatus 0x7c0
+#define mhcr 0x7c1
+#define mcor 0x7c2
+#define mhint 0x7c5
+
 .org 0
 	.section .vectors, "ax"
 	.globl _start
