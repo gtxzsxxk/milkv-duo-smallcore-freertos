@@ -1,12 +1,16 @@
 include(CMakeForceCompiler)
 
+if(NOT DEFINED ENV{CROSS_COMPILE})
+	message(FATAL_ERROR "MUST SPECIFY THE CROSS-COMPILE TOOLCHAIN")
+endif()
+
 # The Generic system name is used for embedded targets (targets without OS) in
 # CMake
 SET( CMAKE_SYSTEM_NAME Generic)
 set( CMAKE_SYSTEM_PROCESSOR     riscv64 )
 set( ARCH riscv64 )
 #set( CROSS_COMPILE aarch64-linux-gnu-)
-set( CROSS_COMPILE riscv64-unknown-elf-)
+set( CROSS_COMPILE $ENV{CROSS_COMPILE})
 
 set(CMAKE_C_COMPILER ${CROSS_COMPILE}gcc)
 set(CMAKE_CXX_COMPILER ${CROSS_COMPILE}g++)
@@ -39,11 +43,7 @@ set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra" )
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdlib" )
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mcmodel=medany" )
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DFREERTOS_BSP" )
-if ($ENV{DDR_64MB_SIZE} STREQUAL "y")
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLINUX_BSP_64MB" )
-else()
-set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLINUX_BSP_128MB" )
-endif()
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__riscv_xlen=64" )
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DTHEAD_C906" )
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCONFIG_64BIT" )
