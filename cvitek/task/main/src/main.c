@@ -48,6 +48,7 @@
 #ifdef __riscv
 /* Standard includes. */
 #include <stdio.h>
+#include <stdint.h>
 /* Scheduler include files. */
 #include "FreeRTOS.h"
 #include "task.h"

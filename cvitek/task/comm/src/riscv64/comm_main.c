@@ -1,5 +1,6 @@
 /* Standard includes. */
 #include <stdio.h>
+#include <stdint.h>
 
 /* Kernel includes. */
 #include "FreeRTOS.h"
@@ -56,13 +57,27 @@ volatile unsigned long *mailbox_context; // mailbox buffer context is 64 Bytess
 
 DEFINE_CVI_SPINLOCK(mailbox_lock, SPIN_MBOX);
 
+void app_task_demo(void * param)
+{
+    const int COUNTER_STOP = 3;
+    int counter = 0;
+    while(1) {
+        if(counter < COUNTER_STOP){
+            printf("Hello Milk-V Duo from the small core! [%d/%d]\r\n", counter+1, COUNTER_STOP);
+            counter++;
+        }
+        vTaskDelay(1000);
+    }
+}
+
 void main_cvirtos(void)
 {
 	printf("create cvi task\n");
 
 
 	/* Start the tasks and timer running. */
-
+    xTaskCreate(app_task_demo, "task_demo", 1024, NULL, 1, NULL);
+    vTaskStartScheduler();
 
     /* If all is well, the scheduler will now be running, and the following
     line will never be reached.  If the following line does execute, then
@@ -74,6 +89,5 @@ void main_cvirtos(void)
     a privileged mode (not user mode). */
     printf("cvi task end\n");
 	
-	for (;;)
-        ;
+	for (;;);
 }
